@@ -1,0 +1,55 @@
+<div class="flex justify-center items-center">
+    <form #contentForm="ngForm">
+        <div class="p-2 flex flex-col gap-2">
+            <span>Title</span>
+            <input class="border outline-none rounded-md py-2 text-sm px-4 hover:border-gray-300" type="text"
+                name="heading" [(ngModel)]="heading" />
+        </div>
+
+        <div class="p-2 flex flex-col gap-2">
+            <span>Description</span>
+            <textarea class="border h-32 w-72 outline-none rounded-md py-2 px-4 text-sm hover:border-gray-300"
+                type="text" name="content" [(ngModel)]="content">
+            </textarea>
+        </div>
+
+        <!-- Replace the "Submit" button with the Teams share button -->
+        <div class="p-2 flex flex-col gap-2">
+            <button (click)="onSubmit(contentForm)" class="border rounded-md p-1 bg-slate-400 text-center">
+                Share to Teams
+            </button>
+        </div>
+    </form>
+
+    {{content | json }}
+
+    <!-- Display the Teams share button with dynamic message -->
+    <div class="teams-share-button" [attr.data-href]="teamSharedLink" [attr.data-msg-text]="teamSharedMessage"
+        [attr.data-icon-px-size]="teamSharedIconSize" data-preview="true" #teamsShareButton>
+    </div>
+</div>
+<div class="border ">
+    <meta property="og:url" content="https://swiftkey.com/en/keyboard/ios" />
+    <meta property="og:title" content="SwiftKey Keyboard for iPhone, iPad &amp;amp; iPod Touch" />
+    <meta property="og:description"
+        content="Discover the best new app for iPhone and iPad, SwiftKey Keyboard learns from you for faster, easier mobile typing — free." />
+    <meta property="og:site_name" content="SwiftKey" />
+    <meta property="og:image" content="/images/og/default.jpg" />
+</div>
+
+
+
+<!-- <div class="teams-share-button" data-href="https://learn.microsoft.com">
+    <a target="ms-teams-share-popup" onclick="window.open('https://teams.microsoft.com/share?href=https%3A%2F%2Flearn.microsoft.com&amp;referrer=learn.microsoft.com', 'ms-teams-share-popup', 'width=400,height=600'); return false" href="https://teams.microsoft.com/share?href=https%3A%2F%2Flearn.microsoft.com&amp;referrer=learn.microsoft.com">
+    <img alt="Share to Microsoft Teams" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0i...Zz4=" width="48" height="32">
+    </a>
+</div> -->
+
+<div class="teams-share-button" data-href="https://learn.microsoft.com">
+    <a target="ms-teams-share-popup"
+        onclick="window.open('https://teams.microsoft.com/share?href=https%3A%2F%2Flearn.microsoft.com&amp;referrer=learn.microsoft.com', 'ms-teams-share-popup', 'width=400,height=600'); return false"
+        href="https://teams.microsoft.com/share?href=https%3A%2F%2Flearn.microsoft.com&amp;referrer=learn.microsoft.com">
+        <!-- Replace the base64-encoded SVG image with the path to your image -->
+        <img alt="Share to Microsoft Teams" src="../ms-team.jpg" width="48" height="32">
+    </a>
+</div>

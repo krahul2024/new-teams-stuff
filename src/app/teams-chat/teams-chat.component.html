@@ -1,0 +1,50 @@
+<div style="padding: 10px; margin: 10px; margin-bottom: 20px;">
+    <div style="padding: 5px;">
+        <div style="font-size: large; font-weight: 300; color: blue;">Some Information</div>
+    </div>
+    <app-list [users]="usersList"></app-list>
+</div>
+
+<br>
+
+<div class="flex flex-col">
+    <form *ngIf="createNewTeamsChat" class="w-full" #inputForm="ngForm">
+        <div class="flex flex-col py-2 gap-1 items-start">
+            <label class="text-xs">Chat Name</label>
+            <input class="outline-none border px-2 py-1 w-full" type="text" #chatNameInput="ngModel" required
+                name="topicName" [(ngModel)]="topicName" />
+        </div>
+
+        <!-- <div class="flex flex-col py-2 gap-1 items-start">
+            <label class="text-xs">Message</label>
+            <input class="outline-none border px-2 py-1 w-full" type="text" #messageInput="ngModel" required
+                name="message" [(ngModel)]="message" />
+        </div> -->
+    </form>
+
+    <div class="flex gap-2">
+        <div class="w-full">
+            <div *ngIf="!createNewTeamsChat">
+                <button (click)="openModal()"
+                    class="flex justify-center items-center outline-none h-8 border px-2 rounded-sm w-full">
+                    <span>Create New Teams Chat</span>
+                </button>
+            </div>
+            <div *ngIf="createNewTeamsChat" class="flex gap-1">
+                <button (click)="createNewChat(topicName, message)"
+                    class="flex justify-center items-center outline-none h-8 border px-2 rounded-sm w-full">
+                    <span>Create New Chat</span>
+                </button>
+                <button (click)="cancelNewChat()"
+                    class="flex justify-center items-center outline-none h-8 border px-2 rounded-sm w-full">
+                    <span>Cancel</span>
+                </button>
+            </div>
+            <button (click)="shareToTeams()"
+                class="flex justify-center items-center outline-none border px-2 rounded-sm w-full mt-2">
+                <span class="text-black text-md">Share to Teams</span>
+                <img src="../../assets/teams-logo.png" class="h-8 w-12 object-contain" />
+            </button>
+        </div>
+    </div>
+</div>

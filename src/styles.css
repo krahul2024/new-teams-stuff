@@ -1,0 +1,30 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@tailwind base; 
+@tailwind components; 
+@tailwind utilities; 
+
+/* styles.scss */
+/* ... existing styles */
+
+app-modal {
+    display: none;
+  
+    .fixed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .bg-black {
+      z-index: 10;
+    }
+  
+    .bg-white {
+      z-index: 20;
+    }
+  }
+  
+  /* ... more styles if needed */
+  

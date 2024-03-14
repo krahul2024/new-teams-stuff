@@ -1,0 +1,55 @@
+<div *ngIf="usersList.length > 0" class="flex gap-4">
+    <div *ngFor="let user of usersList; let i = index">
+        <div class="border p-2 rounded-md">
+            <div>
+                <p><strong>Name:</strong> {{ user.name }}</p>
+                <p><strong>Email:</strong> {{ user.email }}</p>
+                <p><strong>Phone:</strong> {{ user.phone }}</p>
+                <p><strong>Gender:</strong> {{ user.gender }}</p>
+                <p><strong>Age:</strong> {{ user.age }}</p>
+            </div>
+            <div>
+                <strong>Address:</strong>
+                <p><strong>Street:</strong> {{ user.address.street }}</p>
+                <p><strong>City:</strong> {{ user.address.city }}</p>
+                <p><strong>State:</strong> {{ user.address.state }}</p>
+                <p><strong>Postal Code:</strong> {{ user.address.postalCode }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="teams-share-button" 
+     data-href="https://www.microsoft.com"
+     [attr.data-msg-text]="getUpdatedMessage()" 
+     data-preview="true"
+     (click)="handleTeamsButtonClick()">Share to teams
+</div> -->
+
+<!-- <p>{{ getUpdatedMessage().slice(0,209) | json }}</p> -->
+
+<button class="p-2" *ngIf="usersList.length > 0" (click)="openShareToTeams()">
+    Share to teams
+</button>
+
+
+<div class="flex flex-col gap-4" *ngIf="usersList.length === 0">
+    No users list found
+
+    <button (click)="getUsers()" class="">
+        Get Users List
+    </button>
+</div>
+
+
+
+
+<div class="teams-share-button" data-href="https://thoughtstuff.co.uk">
+    <a target="ms-teams-share-popup"
+        onclick="window.open('https://teams.microsoft.com/share?href=https%3A%2F%2Fthoughtstuff.co.uk&amp;referrer=thoughtstuff.co.uk', 'ms-teams-share-popup', 'width=700,height=600'); return false"
+        href="https://teams.microsoft.com/share?href=https%3A%2F%2Fthoughtstuff.co.uk&amp;referrer=thoughtstuff.co.uk">
+        <img alt="Share to Microsoft Teams"
+            src="https://th.bing.com/th?id=OIP.nuTOKzAOvdNmapc2I1xcagHaFe&w=290&h=214&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2"
+            width="32" height="32">
+    </a>
+</div>
